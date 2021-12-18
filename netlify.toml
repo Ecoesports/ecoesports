@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/discord"
+  to = "https://discord.gg/kHrs6yn"
+  status = 301
+
+[[redirects]]
+  from = "/musicbot"
+  to = "https://discord.com/oauth2/authorize?client_id=905662804000915526&permissions=70282305&scope=bot"
+  status = 301
