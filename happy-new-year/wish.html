@@ -1,408 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Happy New Year</title>
-    <style>
-        body{
-    padding: 0;
-    background: #EECDA3;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EF629F, #EECDA3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EF629F, #EECDA3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-}
-.container.active{
-filter: blur(20px);
-pointer-events: none;
-}
-.bdy{
-    margin-top: 60px;
-    text-align: center;
- 
-    /* background: linear-gradient(180deg, red 0%, green 100%);
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy New Year</title>
+  <style>
+    body {
+      padding: 0;
+      background: #EECDA3;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #EF629F, #EECDA3);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #EF629F, #EECDA3);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    .container.active {
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .bdy {
+      margin-top: 60px;
+      text-align: center;
+
+      /* background: linear-gradient(180deg, red 0%, green 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
-    cursor: pointer;
-    font-size: 80px;
-    font-family: "Sofia", sans-serif;
-    
-        color: #fff;
-        text-shadow:
-          0 0 7px #fff,
-          0 0 10px #fff,
-          0 0 21px #fff,
-          0 0 42px #0fa,
-          0 0 82px #0fa,
-          0 0 92px #0fa,
-          0 0 102px #0fa,
-          0 0 151px #0fa;
+      cursor: pointer;
+      font-size: 80px;
+      font-family: "Sofia", sans-serif;
+
+      color: #fff;
+      text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+    }
+
+    @font-face {
+      font-family: "Sofia", sans-serif;
+      src: url(https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple.ttf);
+    }
+
+    .glow {
+      text-transform: capitalize;
+      font-size: 80px;
+      color: #fff;
+      text-align: center;
+      -webkit-animation: glow 1s ease-in-out infinite alternate;
+      -moz-animation: glow 1s ease-in-out infinite alternate;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #bb2a72, 0 0 40px #e60073, 0 0 50px #a12161, 0 0 60px #e60073, 0 0 70px #e60073;
       }
 
-@font-face {
-    font-family: "Sofia", sans-serif;
-    src: url(https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple.ttf);
-}
-.glow {
-  text-transform: capitalize;
-    font-size: 80px;
-    color: #fff;
-    text-align: center;
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
-  }
-  
-  @-webkit-keyframes glow {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #bb2a72, 0 0 40px #e60073, 0 0 50px #a12161, 0 0 60px #e60073, 0 0 70px #e60073;
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+      }
     }
-    to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+
+    #my-canvas {
+      position: fixed;
+      top: 0;
+      left: 0ch;
+      width: 100%;
+      height: 100vh;
+      z-index: 100000;
+      visibility: hidden;
+      pointer-events: none;
     }
-  }
-  #my-canvas
-  {
-     position: fixed;
-     top: 0;
-     left: 0ch;
-     width: 100%;
-     height: 100vh;
-     z-index: 100000;
-     visibility: hidden;
-     pointer-events: none;
- }
- #my-canvas.active{
-  visibility: visible;
 
- }
- /* // button style  */
-  .butn{
-position: absolute;
-padding-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-background-image: linear-gradient(to right, #AA076B 0%, #61045F  51%, #AA076B  100%);
-color: rgb(254, 254, 255);
-font-size: 16px;
-padding: 16px 30px;
-border: none;
-cursor: pointer;
-border-radius: 5px;
-text-align: center;
-}
+    #my-canvas.active {
+      visibility: visible;
 
- .butn:hover{
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-} 
+    }
+
+    /* // button style  */
+    .butn {
+      position: absolute;
+      padding-top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-image: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
+      color: rgb(254, 254, 255);
+      font-size: 16px;
+      padding: 16px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .butn:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
 
 
-/* extra  */
-@import url(https://fonts.googleapis.com/css?family=Khula:700);
+    /* extra  */
+    @import url(https://fonts.googleapis.com/css?family=Khula:700);
 
-.hidden {
-  opacity:0;
-}
-.console-container {
- 
-  font-family:Khula;
-  font-size:1em;
-  text-align:center;
-  height:100px;
-  width:100%;
-  display:block;
-  position:absolute;
-  color:white;
-  top:90%;
-  left:10%;
-  pointer-events: none;
-  
-}
-.console-underscore {
-   display:inline-block;
-  position:relative;
-  top: 10px;
-  left:1%;
-}
+    .hidden {
+      opacity: 0;
+    }
 
-@media only screen and (max-width: 600px) {
-  .console-container {
-    bottom: 0%;
-   left: 0;
-    
-  }
+    .console-container {
+
+      font-family: Khula;
+      font-size: 1em;
+      text-align: center;
+      height: 100px;
+      width: 100%;
+      display: block;
+      position: absolute;
+      color: white;
+      top: 90%;
+      left: 10%;
+      pointer-events: none;
+
+    }
+
+    .console-underscore {
+      display: inline-block;
+      position: relative;
+      top: 10px;
+      left: 1%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .console-container {
+        bottom: 0%;
+        left: 0;
+
+      }
 
 
-}
-  
-h1{
-    margin: 10px;
-    padding: 20px;
-}
- #my-canvas
- {
-    position: fixed;
-    top: 0;
-    left: 0ch;
-    width: 100%;
-    height: 100vh;
-    z-index: 100000;
-}
-.popup{
-position: fixed;
-top: 20%;
-left: 30%;
+    }
 
-transform: translate(-50%,-50%,);
-background: #FDFC47;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #24FE41, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #24FE41, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    h1 {
+      margin: 10px;
+      padding: 20px;
+    }
 
-width: 450px;
-height: 300px;
-box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-display: flex;
-justify-content: center;
-align-items: center;
-visibility: hidden;
-opacity: 0;
-transition: 0.5s;
-border-radius: 10px;
-}
-.popup.active{
-    visibility: visible;
-    opacity: 1;
-    transition: 0.5s;
-    top: 30%;
-}
-@media only screen and (max-width: 600px) {
+    #my-canvas {
+      position: fixed;
+      top: 0;
+      left: 0ch;
+      width: 100%;
+      height: 100vh;
+      z-index: 100000;
+    }
+
     .popup {
+      position: fixed;
+      top: 20%;
+      left: 30%;
+
+      transform: translate(-50%, -50%, );
+      background: #FDFC47;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #24FE41, #FDFC47);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #24FE41, #FDFC47);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      width: 450px;
+      height: 300px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s;
+      border-radius: 10px;
+    }
+
+    .popup.active {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.5s;
+      top: 30%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .popup {
         top: 0%;
         left: 10%;
         width: 240px;
-       height: 300px;
+        height: 300px;
+      }
     }
-  }
-.close{
-    position: absolute;
-    top: 0%;
-    right: 0;
-    padding: 10px 20px;
-    background: rgb(224, 148, 34);
-    color: rgb(16, 15, 90);
-    cursor: pointer;
-    border-radius: 6px;
 
-}
-.popbtn{
-    position: absolute;
-    bottom: 10px;
-    left: 45%;
-    visibility: hidden;
-    background-color: #c2fbd7;
-    border-radius: 100px;
-    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-    color: green;
-    cursor: pointer;
-    display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-    padding: 7px 20px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 250ms;
-    border: 0;
-    font-size: 16px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  position: absolute;
-  bottom: 10px;
-  left: 45%;
-  visibility: visible;
+    .close {
+      position: absolute;
+      top: 0%;
+      right: 0;
+      padding: 10px 20px;
+      background: rgb(224, 148, 34);
+      color: rgb(16, 15, 90);
+      cursor: pointer;
+      border-radius: 6px;
 
-}
-.popbtn.active{
-    visibility: hidden;
-}
-.popbtn2{
-    position: absolute;
-  bottom: 10px;
-  left: 45%;
-  visibility: hidden;
-  background-color: #c2fbd7;
-  border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-.popbtn2.active{
-    visibility: visible;
-}
-.coment
-{
-    padding: 10px;
-    background: -webkit-linear-gradient(rgb(107, 27, 27), rgb(127, 182, 38));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    }
 
-/* CSS */
+    .popbtn {
+      position: absolute;
+      bottom: 10px;
+      left: 45%;
+      visibility: hidden;
+      background-color: #c2fbd7;
+      border-radius: 100px;
+      box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+      color: green;
+      cursor: pointer;
+      display: inline-block;
+      font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+      padding: 7px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 250ms;
+      border: 0;
+      font-size: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      position: absolute;
+      bottom: 10px;
+      left: 45%;
+      visibility: visible;
 
+    }
 
+    .popbtn.active {
+      visibility: hidden;
+    }
 
+    .popbtn2 {
+      position: absolute;
+      bottom: 10px;
+      left: 45%;
+      visibility: hidden;
+      background-color: #c2fbd7;
+      border-radius: 100px;
+      box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+      color: green;
+      cursor: pointer;
+      display: inline-block;
+      font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+      padding: 7px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 250ms;
+      border: 0;
+      font-size: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
 
+    .popbtn2.active {
+      visibility: visible;
+    }
 
+    .coment {
+      padding: 10px;
+      background: -webkit-linear-gradient(rgb(107, 27, 27), rgb(127, 182, 38));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-
-    </style>
+    /* CSS */
+  </style>
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
     <div class="bdy">
-        Happy New Year  !!
+      Happy New Year !!
     </div>
-    
-       <p id="name" class="glow"></p>
-       <!-- <button class="butn" id="myBtn">click</button> -->
-      
 
-    <button class ="butn" id="myBtn"> For you</button>
+    <p id="name" class="glow"></p>
+    <!-- <button class="butn" id="myBtn">click</button> -->
+
+
+    <button class="butn" id="myBtn"> For you</button>
     <!-- // extra add  -->
     <div class='console-container'><span id='text'></span>
-    <div class='console-underscore' id='console'>&#95;</div>
+      <div class='console-underscore' id='console'>&#95;</div>
     </div>
-</div>
-    <div class="popup">
-        <h2 class="coment"> Here’s to another year of making memories with you, my cherished friend. Happy New Year!...</h2>
-        <button class="popbtn">next</button>
-        <button class="popbtn2">previous</button>
-        <b class="close">X</b>
-    </div>
+  </div>
+  <div class="popup">
+    <h2 class="coment"> Here’s to another year of making memories with you, my cherished friend. Happy New Year!...</h2>
+    <button class="popbtn">next</button>
+    <button class="popbtn2">previous</button>
+    <b class="close">X</b>
+  </div>
 
-    <canvas id="my-canvas"></canvas>
-    
-    <script src="index.min.js"></script>
-    
-    <script>
-        // enter name js 
 
-        var a = prompt("please enter your name ")
-document.getElementById("name").innerHTML=a;
+  <script>
+    // enter name js 
 
-// button popup
+    var a = prompt("please enter your name ")
+    document.getElementById("name").innerHTML = a;
 
-  let btn = document.querySelector(".butn");
-  let popup = document.querySelector(".popup");
-  let close = document.querySelector(".close");
-  let canvas = document.querySelector("#my-canvas");
-  let bodyel = document.querySelector(".container");
+    // button popup
 
-  btn.onclick = function(){
+    let btn = document.querySelector(".butn");
+    let popup = document.querySelector(".popup");
+    let close = document.querySelector(".close");
+    let canvas = document.querySelector("#my-canvas");
+    let bodyel = document.querySelector(".container");
+
+    btn.onclick = function () {
       popup.classList.add('active')
       canvas.classList.add('active')
       bodyel.classList.add('active')
-  }
+    }
 
-  close.onclick = function(){
+    close.onclick = function () {
       popup.classList.remove('active')
       canvas.classList.remove('active')
       bodyel.classList.remove('active')
-      
-     
-  }
-  // inner button 
-  let popbtn =document.querySelector(".popbtn");
-  let coment =document.querySelector(".coment");
-  let popbtn2 =document.querySelector(".popbtn2");
-  popbtn.onclick = function(){
-    
-    coment.innerHTML = "  You deserve all the best : May all your wshies come true in 2022!"
-    popbtn.classList.add("active")
-    popbtn2.classList.add("active")
-  }
-  popbtn2.onclick = function(){
+
+
+    }
+    // inner button 
+    let popbtn = document.querySelector(".popbtn");
+    let coment = document.querySelector(".coment");
+    let popbtn2 = document.querySelector(".popbtn2");
+    popbtn.onclick = function () {
+
+      coment.innerHTML = "  You deserve all the best : May all your wshies come true in 2022!"
+      popbtn.classList.add("active")
+      popbtn2.classList.add("active")
+    }
+    popbtn2.onclick = function () {
       coment.innerHTML = "Here’s to another year of making memories with you, my cherished friend. Happy New Year!...";
       popbtn2.classList.remove("active");
       popbtn.classList.remove("active")
-      
 
-  }
 
-  // typing js 
-  consoleText(['Hello  .', 'This is Saheb', 'Made with Love.'], 'text',['blue','rebeccapurple','lightblue']);
-
-function consoleText(words, id, colors) {
-  if (colors === undefined) colors = ['#fff'];
-  var visible = true;
-  var con = document.getElementById('console');
-  var letterCount = 1;
-  var x = 1;
-  var waiting = false;
-  var target = document.getElementById(id)
-  target.setAttribute('style', 'color:' + colors[0])
-  window.setInterval(function() {
-
-    if (letterCount === 0 && waiting === false) {
-      waiting = true;
-      target.innerHTML = words[0].substring(0, letterCount)
-      window.setTimeout(function() {
-        var usedColor = colors.shift();
-        colors.push(usedColor);
-        var usedWord = words.shift();
-        words.push(usedWord);
-        x = 1;
-        target.setAttribute('style', 'color:' + colors[0])
-        letterCount += x;
-        waiting = false;
-      }, 1000)
-    } else if (letterCount === words[0].length + 1 && waiting === false) {
-      waiting = true;
-      window.setTimeout(function() {
-        x = -1;
-        letterCount += x;
-        waiting = false;
-      }, 1000)
-    } else if (waiting === false) {
-      target.innerHTML = words[0].substring(0, letterCount)
-      letterCount += x;
     }
-  }, 120)
-  window.setInterval(function() {
-    if (visible === true) {
-      con.className = 'console-underscore hidden'
-      visible = false;
 
-    } else {
-      con.className = 'console-underscore'
+    // typing js 
+    consoleText(['Hello  .', 'This is Saheb', 'Made with Love.'], 'text', ['blue', 'rebeccapurple', 'lightblue']);
 
-      visible = true;
+    function consoleText(words, id, colors) {
+      if (colors === undefined) colors = ['#fff'];
+      var visible = true;
+      var con = document.getElementById('console');
+      var letterCount = 1;
+      var x = 1;
+      var waiting = false;
+      var target = document.getElementById(id)
+      target.setAttribute('style', 'color:' + colors[0])
+      window.setInterval(function () {
+
+        if (letterCount === 0 && waiting === false) {
+          waiting = true;
+          target.innerHTML = words[0].substring(0, letterCount)
+          window.setTimeout(function () {
+            var usedColor = colors.shift();
+            colors.push(usedColor);
+            var usedWord = words.shift();
+            words.push(usedWord);
+            x = 1;
+            target.setAttribute('style', 'color:' + colors[0])
+            letterCount += x;
+            waiting = false;
+          }, 1000)
+        } else if (letterCount === words[0].length + 1 && waiting === false) {
+          waiting = true;
+          window.setTimeout(function () {
+            x = -1;
+            letterCount += x;
+            waiting = false;
+          }, 1000)
+        } else if (waiting === false) {
+          target.innerHTML = words[0].substring(0, letterCount)
+          letterCount += x;
+        }
+      }, 120)
+      window.setInterval(function () {
+        if (visible === true) {
+          con.className = 'console-underscore hidden'
+          visible = false;
+
+        } else {
+          con.className = 'console-underscore'
+
+          visible = true;
+        }
+      }, 400)
     }
-  }, 400)
-}
-
-// confitt js 
-var confettiSettings = { target: 'my-canvas' };
-var confetti = new ConfettiGenerator(confettiSettings);
-confetti.render();
 
 
-    </script>
+
+  </script>
 </body>
+
 </html>
